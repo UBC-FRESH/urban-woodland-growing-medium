@@ -29,3 +29,6 @@ completion and GitHub issue comments.
 - Completed P0.4 (#5): full local verification passed — `ruff check`,
   12 pytest tests, warning-clean `sphinx-build -W`, `python -m build`, and
   `twine check dist/*` — roadmap and changelog synchronized.
+- Completed Phase 0 by merging PR #6 to `main` (merge commit `196c080`),
+  verifying post-merge CI green on Python 3.11 and 3.12, and closing parent
+  issue #1.
