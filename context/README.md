@@ -32,6 +32,11 @@ where they came from, what is still unresolved, and what has been decided.
   site-unit descriptions for the dry-end BEC13 units; reverse-engineers the
   analogue (CWHdm3 zonal core plus CDFmm xeric cohort) behind the deployment
   contexts.
+- `default-validation.md` — first-pass validation of the adjusted per-context
+  defaults against LMH77 soil descriptions, published texture/available-water
+  ranges, and the CCISS tree-layer suitability dataset; records which targets
+  are inside published ranges and which are stretch values needing laboratory
+  confirmation.
 
 ## Conventions
 

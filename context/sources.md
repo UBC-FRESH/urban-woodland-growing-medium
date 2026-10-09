@@ -79,6 +79,27 @@ edatopic grid of soil moisture and nutrient regimes, the CWHdm3 site series
 used as deployment-context site analogues, and the CCISS future-climate
 analogue commentary. Analogues are design aids, not acceptance criteria.
 
+## Suitability and water-retention validation
+
+- CCISS Environmental Suitability Ratings dataset. BC Data Catalogue record
+  1810fdca-8762-4d6a-8886-4e8cefbdb640; CSV via bcgov/ccissr (`feas_tables`
+  branch). Local untracked copy: `reference/cciss_suitability.csv`.
+  Used for: the tree-layer suitability check (shore pine); tree species only.
+
+- USDA NRCS. Estimating Soil Moisture by Feel and Appearance.
+  https://www.wcc.nrcs.usda.gov/ftpref/wntsc/waterMgt/irrigation/EstimatingSoilMoisture.pdf
+
+- UC ANR Center for Landscape and Urban Horticulture. Soil Water Holding
+  Characteristics.
+  https://ucanr.edu/site/center-landscape-urban-horticulture/soil-water-holding-characteristics
+
+- Saxton, K.E., and W.J. Rawls. 2006. Soil water characteristic estimates by
+  texture and organic matter for hydrologic solutions. SSSAJ 70:1569–1578.
+
+Used for: bounding the plant-available-water targets against published
+available-water-capacity ranges by texture class, and the organic-matter
+effect on water retention. See `default-validation.md`.
+
 ## Municipal contract coordination
 
 - City of Vancouver. Park Development Standards.

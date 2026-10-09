@@ -22,10 +22,11 @@ closed; keep the specification's own "Project schedule" table synchronized.
 ## Deployment-context confirmations (added 2026-10-09)
 
 - Confirm every adjusted per-context default in the deployment-context
-  adjustment table with the project team and laboratory/supplier capability
-  (Layer A organic matter up to 8.0–12.0% for UW-X, plant-available water up
-  to ≥16% by volume, mulch up to 100–150 mm settled, 40 m³ per-tree volume
-  where UW-X depth is restricted).
+  adjustment table with the project team and laboratory/supplier capability.
+  First-pass validation (`default-validation.md`) bounds the plant-available
+  water targets: UW-X Layer A ≥16% and Layer B ≥12% are stretch values above
+  the published sandy-loam range — confirm by laboratory test or relax to
+  demonstrated blend values before tender.
 - Verify the mapped BEC unit for the actual project site (byBEC map or the
   provincial BGC layers) before assigning contexts in the schedule.
 - If numeric climate anchors are needed, pull per-unit climate statistics for
@@ -33,8 +34,15 @@ closed; keep the specification's own "Project schedule" table synchronized.
   `reference/LMH77.pdf`).
 - If the UW-X analogue needs site-series precision under its drier climate,
   confirm the CWHdm1 and CWHxs site-series lists (LMH77 printed 216 and 497).
-- Run a CCISS environmental suitability check on the draft plant palette for
-  the assigned context analogues.
+- CCISS suitability check: done for the tree layer (`default-validation.md`;
+  shore pine E3 on CWHdm3 102/103 = expected low vigor on harsh sites, not a
+  red flag). Not applicable to the shrub/herb layer — CCISS rates tree
+  species only; understorey verification remains the LMH77 cross-reference.
+  CWHxs has no CCISS ratings (all ENA), so UW-X climate-analogue checks rest
+  on CWHdm1/dm2 and CDFmm.
+- Palette decision for professional review: no zonal canopy conifer in the
+  draft palette (no Douglas-fir, western hemlock or western redcedar), while
+  every analogue site series is canopied by them.
 
 ## Supplied nutrient figures (unverified)
 

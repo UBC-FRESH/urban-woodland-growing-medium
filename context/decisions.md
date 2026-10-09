@@ -67,6 +67,19 @@ Alternatives rejected: per-context specification files (shared clauses would
 drift) and two dry-only classes (leaves no specified option for sheltered or
 irrigated beds).
 
+## 2026-10-09 — Adjusted defaults retained after first-pass validation, with two stretch flags
+
+The adjusted per-context defaults were validated against LMH77 soil
+descriptions, published texture/available-water ranges, and the CCISS
+tree-layer dataset (`context/default-validation.md`). Outcome: framework and
+anchors validated; plant-available-water targets retained, with UW-X Layer A
+≥16% and Layer B ≥12% explicitly flagged as stretch values to be confirmed by
+laboratory test or relaxed to demonstrated blend values before tender. Shore
+pine's CCISS E3 rating on CWHdm3 102/103 is accepted as "expected low vigor
+on harsh analogue sites", mitigated by the constructed profile being far
+deeper than the natural 102 soil (<20 cm). The CCISS check covers the tree
+layer only; understorey verification remains the LMH77 cross-reference.
+
 ## 2026-10-09 — UW-M site analogue refined after palette cross-reference
 
 Cross-referencing the 19-species palette against LMH77 site-unit descriptions

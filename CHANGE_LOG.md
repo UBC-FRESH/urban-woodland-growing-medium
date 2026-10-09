@@ -66,6 +66,16 @@ completion and GitHub issue comments.
   nurse-wood analogues, no routine fertilization), and verification tasks
   (CCISS suitability, Berberis repens versus nervosa, coastal stock supply,
   professional review).
+- Committed the restructure, deployment contexts and palette work to `main`
+  (commit `6d61b60`), and completed the first-pass validation of the adjusted
+  per-context defaults (`context/default-validation.md`): LMH77 soil and
+  humus anchors for the analogue site series, plant-available-water targets
+  bounded against published texture/available-water ranges (UW-X Layer A
+  ≥16% and Layer B ≥12% flagged as stretch values for laboratory
+  confirmation), and the CCISS tree-layer suitability check (shore pine E3 on
+  CWHdm3 102/103 accepted as expected low vigor; shrub/herb layer not
+  CCISS-checkable; CWHxs unrated). CCISS dataset cached locally at
+  `reference/cciss_suitability.csv`.
 - Cross-referenced the palette against LMH77 site-unit descriptions for the
   five dry-end BEC13 units (`context/palette-bec-crosswalk.md`),
   reverse-engineering the assemblage to a CWHdm3 zonal-forest core
