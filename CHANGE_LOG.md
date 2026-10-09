@@ -14,3 +14,18 @@ completion and GitHub issue comments.
 - Opened Phase 0 on `feature/p0-bootstrap-scaffold` with parent issue #1 and
   child issues #2 through #5 to establish governance, planning, package, docs,
   and CI scaffold.
+- Completed P0.1 (#2): added `AGENTS.md`, `ROADMAP.md`, `CHANGE_LOG.md`,
+  `CONTRIBUTING.md`, `CODE_OF_CONDUCT.md`, and `planning/` notes recording
+  the bootstrap rationale and the sanitized design basis with unresolved
+  pre-tender items.
+- Completed P0.2 (#3): ported the ChatGPT-export builder scripts into the
+  `src/`-layout package `woodland_spec` with a thin `woodland-spec` CLI,
+  tracked both specification DOCX deliverables under `specification/`, and
+  added metadata, CLI, and build/content tests. Regenerated DOCX files are
+  text-identical to the tracked deliverables.
+- Completed P0.3 (#4): added the Sphinx documentation skeleton, the CI
+  workflow (Ruff, pytest, warning-clean docs build, package build, and
+  `twine check` on Python 3.11 and 3.12), and docs configuration tests.
+- Completed P0.4 (#5): full local verification passed — `ruff check`,
+  12 pytest tests, warning-clean `sphinx-build -W`, `python -m build`, and
+  `twine check dist/*` — roadmap and changelog synchronized.

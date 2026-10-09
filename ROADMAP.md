@@ -8,7 +8,7 @@ synchronized with GitHub issues, planning notes, pull requests, and
 
 | Phase | Parent issue | Branch | Status |
 | --- | --- | --- | --- |
-| P0 Bootstrap scaffold | #1 | `feature/p0-bootstrap-scaffold` | Active |
+| P0 Bootstrap scaffold | #1 | `feature/p0-bootstrap-scaffold` | Complete |
 | P1 Pre-tender completion | TBD | `feature/p1-pre-tender-completion` | Planned |
 | P2 Site-specific design review and tender issue | TBD | `feature/p2-design-review-tender-issue` | Planned |
 
@@ -18,36 +18,48 @@ Parent issue: #1
 
 Branch: `feature/p0-bootstrap-scaffold`
 
+Status: complete
+
 Goal: establish this repository as a public UBC-FRESH project with strict
 governance, planning, docs, CI, and an importable Python package that
 reproducibly builds the CWH woodland growing medium specification DOCX from
 tracked source.
 
-- [ ] P0.1 Governance and planning scaffold (#2)
-  - [ ] Add `AGENTS.md` coding-agent contract.
-  - [ ] Add `ROADMAP.md` with issue tracker map.
-  - [ ] Add `CHANGE_LOG.md` seed entry.
-  - [ ] Add `CONTRIBUTING.md` and `CODE_OF_CONDUCT.md`.
-  - [ ] Add `planning/phase0_bootstrap_rationale.md`.
-  - [ ] Add `planning/design_basis.md`.
-- [ ] P0.2 Specification builder package and CLI skeleton (#3)
-  - [ ] Add `pyproject.toml` with metadata, extras, and tool configuration.
-  - [ ] Port `build_spec.py` into `src/woodland_spec/build_spec.py`.
-  - [ ] Port `add_properties.py` into `src/woodland_spec/add_properties.py`.
-  - [ ] Add `src/woodland_spec/__init__.py` and `src/woodland_spec/cli.py`.
-  - [ ] Track both specification DOCX files under `specification/`.
-  - [ ] Add tests for metadata, CLI, and specification build/content.
-  - [ ] Regenerate the updated DOCX and confirm content equivalence.
-- [ ] P0.3 Docs and CI scaffold (#4)
-  - [ ] Add `docs/conf.py` and starter pages.
-  - [ ] Add `.github/workflows/ci.yml`.
-  - [ ] Add docs configuration import sanity test.
-  - [ ] Confirm warning-clean Sphinx build.
-- [ ] P0.4 Phase closeout and verification (#5)
-  - [ ] Run local acceptance commands.
-  - [ ] Update roadmap and changelog closeout notes.
-  - [ ] Comment on child issues and parent issue with verification results.
-  - [ ] Push branch and open PR to `main`.
+- [x] P0.1 Governance and planning scaffold (#2)
+  - [x] Add `AGENTS.md` coding-agent contract.
+  - [x] Add `ROADMAP.md` with issue tracker map.
+  - [x] Add `CHANGE_LOG.md` seed entry.
+  - [x] Add `CONTRIBUTING.md` and `CODE_OF_CONDUCT.md`.
+  - [x] Add `planning/phase0_bootstrap_rationale.md`.
+  - [x] Add `planning/design_basis.md`.
+- [x] P0.2 Specification builder package and CLI skeleton (#3)
+  - [x] Add `pyproject.toml` with metadata, extras, and tool configuration.
+  - [x] Port `build_spec.py` into `src/woodland_spec/build_spec.py`.
+  - [x] Port `add_properties.py` into `src/woodland_spec/add_properties.py`.
+  - [x] Add `src/woodland_spec/__init__.py` and `src/woodland_spec/cli.py`.
+  - [x] Track both specification DOCX files under `specification/`.
+  - [x] Add tests for metadata, CLI, and specification build/content.
+  - [x] Regenerate the updated DOCX and confirm content equivalence.
+- [x] P0.3 Docs and CI scaffold (#4)
+  - [x] Add `docs/conf.py` and starter pages.
+  - [x] Add `.github/workflows/ci.yml`.
+  - [x] Add docs configuration import sanity test.
+  - [x] Confirm warning-clean Sphinx build.
+- [x] P0.4 Phase closeout and verification (#5)
+  - [x] Run local acceptance commands.
+  - [x] Update roadmap and changelog closeout notes.
+  - [x] Comment on child issues and parent issue with verification results.
+  - [x] Push branch and open PR to `main`.
+
+Phase 0 local verification passed with:
+
+- `python -m ruff check .`
+- `python -m pytest` (12 tests)
+- `sphinx-build -b html docs _build/html -W`
+- `python -m build`
+- `twine check dist/*`
+- regenerated original and updated DOCX text-identical to the tracked
+  deliverables under `specification/`
 
 ## Phase 1: Pre-Tender Completion (Planned)
 
