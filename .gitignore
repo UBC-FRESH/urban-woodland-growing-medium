@@ -19,7 +19,6 @@ env/
 build/
 dist/
 _build/
-docs/_build/
 
 # Local work and private/generated material
 tmp/

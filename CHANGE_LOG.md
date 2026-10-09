@@ -32,3 +32,44 @@ completion and GitHub issue comments.
 - Completed Phase 0 by merging PR #6 to `main` (merge commit `196c080`),
   verifying post-merge CI green on Python 3.11 and 3.12, and closing parent
   issue #1.
+- Completed Phase 0.5 (maintainer-directed, recorded as roadmap phase 0.5):
+  replaced the `woodland_spec` package and its hardcoded DOCX builders with a
+  Markdown source of truth
+  (`specification/cwh-urban-woodland-growing-medium.md`, one sentence per
+  line), archived the original DOCX deliverables under
+  `specification/archive/`, added the `context/` tree (design basis, sources,
+  open items, decision log), added `scripts/export.py` (pandoc via
+  pypandoc-binary) as the on-demand DOCX/HTML export path, and replaced the
+  package tests with Markdown content guards and export pipeline checks.
+  Local verification: `ruff check scripts tests`, `pytest` (10 tests), and
+  `scripts/export.py` all pass; exported DOCX text matches the archived
+  ten-page deliverable except that pandoc collapses the double spacing
+  around the pipe in the section banner line.
+- Completed Phase 0.6 (maintainer-directed): differentiated the specification
+  into three BEC-anchored deployment contexts (UW-M sheltered mesic, UW-D
+  slightly dry, UW-X very dry) in one parameterized document, with a
+  deployment-context adjustment table covering depth, per-tree volume,
+  organic matter, plant-available water, mulch, texture selection,
+  irrigation and species checks. Contexts are anchored to BEC13
+  subzone/variant climate analogues and CWHdm3 edatopic site series.
+- Adopted Land Management Handbook 77 (2026, BEC13) as the master BEC
+  reference; downloaded a local untracked copy to `reference/LMH77.pdf`
+  (canonical source http://library.nrs.gov.bc.ca/digipub/LMH77.pdf), verified
+  the CWHdm unit descriptions and the CWHdm3 edatopic grid, corrected the
+  Vancouver-area variant name to CWHdm3 Eastern Variant, and anchored the
+  deployment contexts to CWHdm3 site series 101/102/103.
+- Added `context/bec-mapping.md` (research notes and LMH77 page map) and
+  updated `context/` sources, design basis, open items and decision log.
+- Recorded the user-supplied draft target palette of 19 CWH-native forest
+  species in `context/plant-palette.md`, with per-species deployment-context
+  fit, growing-medium implications (acid organic surface layer, mulch and
+  nurse-wood analogues, no routine fertilization), and verification tasks
+  (CCISS suitability, Berberis repens versus nervosa, coastal stock supply,
+  professional review).
+- Cross-referenced the palette against LMH77 site-unit descriptions for the
+  five dry-end BEC13 units (`context/palette-bec-crosswalk.md`),
+  reverse-engineering the assemblage to a CWHdm3 zonal-forest core
+  (101/103/110) plus a CDFmm-flavoured xeric open-rock cohort; refined the
+  UW-M site analogue in the specification to include site series 110 on
+  richer mesic sites, and flagged kinnikinnick (CWHdm2/xs indicator) and
+  Berberis repens as analogue mismatches for follow-up.

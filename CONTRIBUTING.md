@@ -10,7 +10,7 @@ aligned with the active roadmap phase.
 python -m venv .venv
 . .venv/bin/activate
 python -m pip install --upgrade pip
-python -m pip install -e .[dev]
+python -m pip install -r requirements-dev.txt
 ```
 
 On Windows PowerShell:
@@ -19,17 +19,15 @@ On Windows PowerShell:
 python -m venv .venv
 .\.venv\Scripts\Activate.ps1
 python -m pip install --upgrade pip
-python -m pip install -e .[dev]
+python -m pip install -r requirements-dev.txt
 ```
 
 ## Local Checks
 
 ```bash
-python -m ruff check .
+python -m ruff check scripts tests
 python -m pytest
-sphinx-build -b html docs _build/html -W
-python -m build
-twine check dist/*
+python scripts/export.py --output-dir outputs
 ```
 
 ## Workflow
@@ -38,8 +36,9 @@ twine check dist/*
 - Use the active phase branch and linked GitHub issues.
 - Keep `CHANGE_LOG.md`, roadmap checklists, issue comments, and PR descriptions
   synchronized with completed work.
-- Edit specification content in the Python builders under `src/woodland_spec/`,
-  not in the generated DOCX files, and regenerate the deliverables.
+- Edit specification content in the Markdown source under `specification/`,
+  one sentence per line, and keep `context/` synchronized. Never edit the
+  archived DOCX files or any generated document.
 - Do not commit private data, raw transcripts, credentials, generated local
   outputs, or machine-specific paths.
 

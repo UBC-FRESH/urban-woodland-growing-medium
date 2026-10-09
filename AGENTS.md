@@ -8,19 +8,31 @@ This file is the working contract for AI coding agents in this repository.
 medium specification for constructed urban woodland — new trees plus woodland
 understory in an open soil bed over compacted fill or disturbed construction
 soil — within the Coastal Western Hemlock (CWH) biogeoclimatic zone of British
-Columbia.
-
-The durable source of truth is the tracked Python source that builds the
-specification DOCX, plus the governance and planning records in this
-repository. The tracked DOCX deliverables under `specification/` are generated
-artifacts kept under version control so reviewers can read them without
-running the builders; regenerate them from source rather than editing them in
-an office application.
+Columbia. The repository is structured to grow into a family of similarly
+authored, defensible specifications for other special cases and deployment
+contexts.
 
 The specification is a project draft. It is not issued for construction and is
 not professionally certified. Numerical limits are authored project defaults
 for a fresh-to-moist, freely drained CWH woodland, not official CWH-wide
 limits, until the project team confirms them for a specific site.
+
+## Source Of Truth Model
+
+- The durable source of truth is Markdown: one file per specification under
+  `specification/`, formatted **one sentence per line** so sentences are the
+  diffable unit in git. Tables are pandoc pipe tables, one row per line.
+- Word (and later other formats) are **generated artifacts**, produced on
+  demand by `scripts/export.py` (pandoc via pypandoc) into the ignored
+  `outputs/` directory. Never edit a generated document; edit the Markdown
+  and re-export.
+- `specification/archive/` holds the two original ChatGPT-produced DOCX
+  deliverables. They are immutable provenance, not current deliverables, and
+  are no longer reproducible from source — do not modify, regenerate, or
+  delete them.
+- Export heading mapping: the single level-1 heading becomes the Word Title
+  style; level-2/3 headings become Word Heading 1/2, matching the archived
+  layout. Keep exactly one `#` heading per specification file.
 
 ## Current Repo State
 
@@ -28,15 +40,15 @@ limits, until the project team confirms them for a specific site.
 - `ROADMAP.md`: phase/task roadmap and issue tracker map.
 - `CHANGE_LOG.md`: append-only project narrative.
 - `AGENTS.md`: this working contract.
-- `planning/`: design basis, bootstrap rationale, and focused notes.
-- `pyproject.toml`: package metadata and optional dependency groups.
-- `src/woodland_spec/`: importable package that builds the specification DOCX
-  files, plus a thin `woodland-spec` CLI.
-- `specification/`: tracked generated DOCX deliverables (original and updated
-  versions).
-- `tests/`: package metadata, CLI, docs, and specification build/content
-  tests.
-- `docs/`: Sphinx documentation skeleton.
+- `specification/`: Markdown specification sources plus the DOCX `archive/`.
+- `context/`: persistent agent memory — design basis, sources, open items,
+  and the decision log. Read it before editing a specification; update it in
+  the same change when defaults, sources, or open items move.
+- `planning/`: dated historical planning notes (Phase 0 bootstrap rationale).
+- `scripts/export.py`: thin pandoc wrapper; the only supported export path.
+- `tests/`: content guards for the Markdown source and export pipeline checks.
+- `requirements-dev.txt`, `pytest.ini`, `ruff.toml`: tooling configuration.
+  There is no installable Python package.
 - `.github/workflows/`: CI checks.
 - `reference/`: ignored local area holding the original ChatGPT export bundle
   (transcripts, QA renders, nested archives). Not tracked.
@@ -49,21 +61,24 @@ limits, until the project team confirms them for a specific site.
 - Do not commit private project data, raw chat transcripts, QA image dumps,
   credentials, machine-specific paths, or unpublished source documents.
 - Keep provenance explicit: record where specification content, numerical
-  defaults, and external references came from in `planning/design_basis.md`
-  and the specification appendices.
+  defaults, and external references came from in `context/design-basis.md`,
+  `context/sources.md`, and the specification appendices.
 - Do not state or imply that the specification is issued for tender,
   issued for construction, or professionally certified until the roadmap
   records that milestone.
 
 ## Working Principles
 
-- Read `AGENTS.md`, `ROADMAP.md`, and `CHANGE_LOG.md` before making
-  project-shaping changes.
-- Keep CLI commands thin wrappers over Python APIs.
-- Edit specification content in the Python builders, not in the DOCX files;
-  regenerate and re-run content tests.
+- Read `AGENTS.md`, `ROADMAP.md`, `CHANGE_LOG.md`, and `context/` before
+  making project-shaping changes.
+- Edit specification content in the Markdown source. Keep one sentence per
+  line; do not hard-wrap sentences, and do not reflow table rows.
 - Preserve uncertainty. Distinguish authored project defaults from verified
   acceptance limits, and supplied reference figures from enforceable criteria.
+- Keep `context/` synchronized with specification edits: design-basis changes
+  update `design-basis.md`, new or dropped citations update `sources.md`,
+  resolved items move out of `open-items.md`, and significant choices get a
+  dated `decisions.md` entry.
 - Keep changes scoped to the active roadmap phase and issue.
 
 ## Planning Workflow
@@ -148,11 +163,12 @@ unless the maintainer explicitly asks for a placeholder.
 Default local checks:
 
 ```bash
-python -m ruff check .
+python -m venv .venv
+. .venv/bin/activate
+python -m pip install -r requirements-dev.txt
+python -m ruff check scripts tests
 python -m pytest
-sphinx-build -b html docs _build/html -W
-python -m build
-twine check dist/*
+python scripts/export.py --output-dir outputs
 ```
 
 Default CI must not require private project data, commercial office software,

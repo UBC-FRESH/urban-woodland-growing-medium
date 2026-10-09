@@ -30,22 +30,18 @@ jobs:
           python-version: ${{ matrix.python-version }}
           cache: pip
 
-      - name: Install package
+      - name: Install tooling
         run: |
           python -m pip install --upgrade pip
-          python -m pip install -e '.[dev]'
+          python -m pip install -r requirements-dev.txt
 
       - name: Lint
-        run: python -m ruff check .
+        run: python -m ruff check scripts tests
 
-      - name: Test
+      - name: Test specification content and export pipeline
         run: python -m pytest
 
-      - name: Build documentation
-        run: sphinx-build -b html docs _build/html -W
-
-      - name: Build package
-        run: python -m build
-
-      - name: Check package metadata
-        run: twine check dist/*
+      - name: Export smoke test
+        run: |
+          python scripts/export.py --output-dir outputs
+          test -s outputs/cwh-urban-woodland-growing-medium.docx

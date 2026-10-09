@@ -1,0 +1,6 @@
+# Development and export tooling. The repository has no installable package;
+# the specification source is Markdown and these tools verify and export it.
+pypandoc-binary>=1.13
+python-docx>=1.1,<2
+pytest>=8
+ruff>=0.5
